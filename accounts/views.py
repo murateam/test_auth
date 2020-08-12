@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from django.contrib.auth.models import User
 import requests
 
 from accounts.forms import LoginForm
@@ -38,11 +39,25 @@ def test(request):
 	print(r)
 	return HttpResponse('call test')
 
-def sample_view(request):
+def auth_success(request):
     current_user = request.user
-    print current_user.id
+    social_data = User.objects.get(id=current_user.id)
 
-    if request.user.is_authenticated:
+    vk_data = current_user.social_auth.extra().values_list()
+    token = 0
+    for i in vk_data:
+    	for k in i:
+    		if type(k) == dict:
+    			token = k.get('access_token')
+    # print(token)
+    # token = vk_data[0][4].get('access_token')
+    response = requests.get(f'https://api.vk.com/method/friends.getOnline?v=5.52&access_token={token}')
+    print(response.json())
+    # {'response': [3691094, 4287067, 4298711, 5212107, 8478133, 10835985, 21165120, 24249175, 42311904, 122328958]}
+    
+    return HttpResponse('OK')
+
+    # if request.user.is_authenticated:
 	    # Do something for authenticated users.
-	else:
+	# else:
 	    # Do something for anonymous users.
