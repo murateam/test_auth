@@ -1,0 +1,16 @@
+<html>
+	<head>
+	</head>
+	<body>
+		login as {{user.username}}
+		<h1>Вход</h1>
+
+		<a href="#" onclick="startConnect(); return false;">Click to authenticate</a>
+		<p>введите логин/пароль:</p>
+		<form action="." method="POST">
+			{{ form.as_p }}
+			{% csrf_token%}
+			<button type="submit">Войти</button>
+		</form>
+	</body>
+</html>

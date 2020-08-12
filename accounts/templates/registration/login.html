@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Войдите</title>
+	</head>
+	<body>
+		<h1>Вход</h1>
+		<p>вошли как: {{ user.username }}</p>
+		<p>{{ user }}</p>
+		{% if form.errors %}
+		<p>Ошибка: пароль или логин неправильные. Попробуйте снова</p>
+		{% else %}
+		<p>введите логин/пароль:</p>
+		{% endif %}
+		 <form action="." method="POST" class="login">
+		 	{{ form.as_p }}
+		 	{% csrf_token %}
+		 	<!-- <input type="hidden" name="next" value="{{ next }}" /> -->
+		 	<input type="hidden" name="next" value="./" />
+		 	<button type="submit">Войти</button>
+		 </form>
+		 <ul>
+		 	<li><a href="{% url 'social:begin' 'github'%}">Sign with github</a></li>
+		 	<li><a href="{% url 'social:begin' 'vk-oauth2'%}">Sign with vk</a></li>
+		 </ul>
+	</body>
+</html>
