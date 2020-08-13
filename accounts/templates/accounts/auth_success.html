@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+		<link rel="stylesheet" href="{% static 'test_auth/css/styles.css'%}">
+	</head>
+	<body>
+		<div class="container">
+		    <div class="row">
+		        <div class="col-md-3 col-sm-6">
+		            <div class="product-grid">
+		                <div class="product-image">
+		                    <a href="#">
+		                        <img class="pic-1" src="images/img-1.jpg">
+		                        <img class="pic-2" src="images/img-2.jpg">
+		                    </a>
+		                    <span class="product-trend-label">Trend</span>
+		                    <ul class="social">
+		                        <li><a href="#" data-tip="Add to Cart"><i class="fas fa-shopping-cart"></i></a></li>
+		                        <li><a href="#" data-tip="Wishlist"><i class="far fa-heart"></i></a></li>
+		                        <li><a href="#" data-tip="Compare"><i class="fas fa-random"></i></a></li>
+		                        <li><a href="#" data-tip="Quick View"><i class="fas fa-search"></i></a></li>
+		                    </ul>
+		                </div>
+		                <div class="product-content">
+		                    <h3 class="title"><a href="#">Men's Blazer</a></h3>
+		                    <div class="price">$21.00</div>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="col-md-3 col-sm-6">
+		            <div class="product-grid">
+		                <div class="product-image">
+		                    <a href="#">
+		                        <img class="pic-1" src="images/img-3.jpg">
+		                        <img class="pic-2" src="images/img-4.jpg">
+		                    </a>
+		                    <span class="product-trend-label">Trend</span>
+		                    <span class="product-discount-label">-20%</span>
+		                    <ul class="social">
+		                        <li><a href="#" data-tip="Add to Cart"><i class="fas fa-shopping-cart"></i></a></li>
+		                        <li><a href="#" data-tip="Wishlist"><i class="far fa-heart"></i></a></li>
+		                        <li><a href="#" data-tip="Compare"><i class="fas fa-random"></i></a></li>
+		                        <li><a href="#" data-tip="Quick View"><i class="fas fa-search"></i></a></li>
+		                    </ul>
+		                </div>
+		                <div class="product-content">
+		                    <h3 class="title"><a href="#">Women's Button Top</a></h3>
+		                    <div class="price discount"><span>$17.00</span> $13.60</div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</body>
+</html>

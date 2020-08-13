@@ -1,0 +1,48 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>App</title>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      {% if user.is_authenticated %}
+        <p>Logged as {{ user.username }}</p>
+        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+          Login
+        </a>
+      {% endif %}
+    </div>
+    <div class="row">
+      {% for friend in friends %}
+      <div class="col-md-1 col-sm-6">
+        <img src="{% static "app/{{friend.ava}}" %}" alt="Ava" class="avatar">
+        <p>{{friend}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- <div class="container-fluid">
+  {% for post in data %}
+    <div>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <p>Posted by {{ post.user.username }} | {{ post.date }}</p>
+    </div>
+  {% endfor %}
+  </div> -->
+</body>
+</html>

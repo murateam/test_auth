@@ -33,11 +33,6 @@ class LoginView(View):
 		form = LoginForm
 		return render(request, 'accounts/login.html', {'form': form})
 
-def test(request):
-	#login.vk.com/?act=openapi&oauth=1&aid=745344&location=127.0.0.1&new=1&response_type=code
-	r = requests.get('login.vk.com/?act=openapi&oauth=1&aid=7563437&location=127.0.0.1&new=1&response_type=code')
-	print(r)
-	return HttpResponse('call test')
 
 def auth_success(request):
     current_user = request.user
@@ -49,7 +44,6 @@ def auth_success(request):
     	for k in i:
     		if type(k) == dict:
     			token = k.get('access_token')
-    # print(token)
     # token = vk_data[0][4].get('access_token')
     response = requests.get(f'https://api.vk.com/method/friends.getOnline?v=5.52&access_token={token}')
     print(response.json())
