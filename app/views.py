@@ -34,6 +34,9 @@ def app(request):
 	if check_user(request.user):
 		# https://api.vk.com/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN
 		# https://vk.com/dev/friends.get
+		# https://api.vk.com/method/getProfiles?uid=66748&access_token=533bacf01e11f55b536a565b57531ac114461ae8736d6506a3
+
+
 		return render(request, 'app/app.html', {'friends': friends})
 	else:
 		return redirect('/accounts/login')
