@@ -14,19 +14,26 @@ def check_auth(request):
 def app(request):
 	friends = [
 		{
-			'name': 'user1',
+			'name': 'Den',
 			'ava': 'ava_01.png',
 		},
 		{
-			'name': 'user2',
+			'name': 'Charlie',
 			'ava': 'ava_02.png',
 		},
 		{
-			'name': 'user3',
+			'name': 'Ben',
 			'ava': 'ava_03.png',
 		},
+		{
+			'name': 'Ashlie',
+			'ava': 'ava_04.png',
+		},
+
 	]
 	if check_user(request.user):
+		# https://api.vk.com/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN
+		# https://vk.com/dev/friends.get
 		return render(request, 'app/app.html', {'friends': friends})
 	else:
 		return redirect('/accounts/login')
