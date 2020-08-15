@@ -17,8 +17,10 @@
   <div class="container">
     <div class="jumbotron">
       {% if user.is_authenticated %}
-        <p>Logged as {{ user.username }}</p>
-        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+        <p>
+        Вы залогинились как: <h5> {{ user.first_name }} {{ user.last_name }}</h5>
+        </p>
+        <a class="btn btn-primary mt-3" href="{% url 'logout' %}">Logout</a>
       {% else %}
         <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
           Login
@@ -27,22 +29,22 @@
     </div>
     <div class="row text-center">
       {% for friend in friends %}
-      <div class="col-md-1 col-sm-6">
-        <img src="http://localhost:8000/static/app/{{friend.ava}}" %}" alt="Ava" class="avatar">
-        <a href="# font-bold">{{friend.name}}</a>
+      <div class="col-md-2 col-sm-2">
+        <!-- <img src="http://localhost:8000/static/app/{{friend.ava}}" %}" alt="Ava" class="avatar">
+        <a href="# font-bold">{{friend.name}}</a> -->
+        <div class="row">
+          <div class="col">
+            <img src="{{friend.photo_100}}" alt="avatar" class="avatar">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="https://vk.com/id{{friend.id}}" target="_blank">{{friend.first_name}} {{friend.last_name}}</a>
+          </div>
+        </div>
       </div>
       {% endfor %}
     </div>
   </div>
-
-  <!-- <div class="container-fluid">
-  {% for post in data %}
-    <div>
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
-      <p>Posted by {{ post.user.username }} | {{ post.date }}</p>
-    </div>
-  {% endfor %}
-  </div> -->
 </body>
 </html>

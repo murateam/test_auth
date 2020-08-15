@@ -115,10 +115,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = main_var.vk_key
 SOCIAL_AUTH_VK_OAUTH2_SECRET = main_var.vk_secret
-SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['friends']
 
 SOCIAL_AUTH_GITHUB_KEY = main_var.git_key
 SOCIAL_AUTH_GITHUB_SECRET = main_var.git_secret
+
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['friends']
 
 AUTHENTICATION_BACKENDS = (
 	'social_core.backends.vk.VKOAuth2',
